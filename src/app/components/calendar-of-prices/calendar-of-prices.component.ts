@@ -45,10 +45,11 @@ export class CalendarOfPricesComponent implements OnInit {
         );
         this.events = state.map(({ depart_date, value, ...item }) => ({
           start: startOfDay(new Date(depart_date)),
-          title: `Price: ${value}${currencyFromStore.toUpperCase()}`,
+          title: `Price: ${value} ${currencyFromStore.toUpperCase()}`,
           depart_date,
           value,
           ...item,
+          currency: currencyFromStore,
         }));
         this.cdRef.detectChanges();
       });
